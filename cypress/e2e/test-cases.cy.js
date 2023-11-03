@@ -181,11 +181,19 @@ describe('Functional section', () => {
             settingsPage.checkEmail(userEmail);
         })
     })
-    it('Test case #1-10 "The Fork on Github" link', () => {
+    it('Test case #1-10 Check messages in the sections in the Profile page', () => {
         // Step 1
-        homePage.clickOnGitHubLink();
-        homePage.checkGitHubLinkTarget();
-        homePage.checkGitHubLinkHref();
+        homePage.clickProfileLink();
+        cy.fixture("user").then( (data) => {
+            userName = data.name;
+            cy.url().should('contain',userName)
+            .and('contain','realworld.io');
+        })
+        profilePage.checkArticlesMessageIsVisibleAndHaveMessage();
+        // Step 2
+        profilePage.clickFavoriteArticlesBookmark();
+        profilePage.checkArticlesMessageIsVisibleAndHaveMessage
+
 
     })
 })

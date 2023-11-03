@@ -5,7 +5,6 @@ const firstPopularTagLoc = '.tag-list > :nth-child(1)';
 const firstNewBookmarkLoc = '[ng-show="$ctrl.listConfig.filters.tag"] > .nav-link';
 const globalFeedBookmarkLoc = '.feed-toggle > .nav > :nth-child(2) > .nav-link';
 const firstGlobalFeedArticleHeartLoc = ':nth-child(1) > .article-preview > article-meta.ng-isolate-scope > .article-meta > :nth-child(3) > .pull-xs-right > .btn';
-const gitHubLinkLoc = '[href="https://github.com/gothinkster/angularjs-realworld-example-app"]';
 
 export class HomePage {
     navigate() {
@@ -46,19 +45,5 @@ export class HomePage {
         .should('have.css','color')
         .and('eql','rgb(255, 255, 255)');
     }
-    clickOnGitHubLink() {
-        cy.get(gitHubLinkLoc).click();
-    }
-    checkGitHubLinkTarget() {
-        cy.get(gitHubLinkLoc)
-        .should('have.attr', 'target')
-        .and('eql','_blank');
-    }
-    checkGitHubLinkHref() {
-        cy.get(gitHubLinkLoc)
-        .should('have.attr', 'href')
-        .and('eql','https://github.com/gothinkster/angularjs-realworld-example-app');
-    }
-    
 }
 

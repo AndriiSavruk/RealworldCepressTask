@@ -3,6 +3,7 @@ const logoLoc = '.navbar-brand';
 const favoriteArticlesBookmarkLoc = '.articles-toggle > .nav > :nth-child(2) > .nav-link';
 const firstGlobalFeedArticleHeartLoc = '.pull-xs-right > .btn';
 const editProfileSettingsButtonLoc = 'a.btn';
+const articlesMessageLoc = '[ng-show="!$ctrl.loading && !$ctrl.list.length"]';
 
 export class ProfilePage {
     clickLogo() {
@@ -24,5 +25,10 @@ export class ProfilePage {
     }
     clickEditProfileSettingsButton() {
         cy.get(editProfileSettingsButtonLoc).click();
+    }
+    checkArticlesMessageIsVisibleAndHaveMessage() {
+        cy.get(articlesMessageLoc)
+        .should('be.visible')
+        .and('contain','No articles are here... yet');
     }
 }
