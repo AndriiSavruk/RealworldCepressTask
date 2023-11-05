@@ -4,9 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "tests": "cypress run",
-    "tests chrome": "cypress run --browser chrome",
-    "tests firefox": "cypress run --browser firefox"
+    "tests": "npx cypress run",
+    "tests-headed": "npx cypress run --headed",
+    "tests-chrome": "npx cypress run --browser chrome",
+    "tests-headed-chrome": "npx cypress run --headed --browser chrome",
+    "tests-firefox": "npx cypress run --browser firefox",
+    "tests-headed-firefox": "npx cypress run --headed --browser firefox"
   },
   "keywords": [],
   "author": "",
